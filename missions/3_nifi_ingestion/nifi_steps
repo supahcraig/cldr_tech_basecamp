@@ -40,6 +40,10 @@ http://ec2-3-239-11-101.compute-1.amazonaws.com:14000/webhdfs/v1/user/gravity/ga
 You'll have to download the mysql jdbc jar onto each of the nifi nodes.   There may be a way to do this from the UI, I did it from the command line.
 
 I unzipped the zip & copied the jar into /tmp and (I think) gave it 777 permissions.  The DBMS connection pool serivce in nifi won't enable until it is on all 3(?) nodes.
+In the controller service use this:
+connection URL:  jdbc:mysql://ec2-3-239-11-101.compute-1.amazonaws.com:3306/gravity
+driver location:  file:///tmp/mysql-connector-java-8.0.24.jar
+driver class name:  com.mysql.jdbc.Driver
 
 Make sure you only execute on the primary node or else the SQL will run 3 times and you have duped up data.
 
