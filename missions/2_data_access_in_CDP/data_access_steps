@@ -1,1 +1,13 @@
+There were some steps around adding users & creating admin groups, syncing users, sync users to FreeIPA....I missed documenting those steps.  
 
+
+
+hdfs dfs -ls s3a://cnelson2-data/external/
+
+echo "hello world" > text.txt
+
+hdfs dfs -put test.txt s3a://cnelson2-data/external/test.txt
+hdfs dfs -ls s3a://cnelson2-data/external/
+hdfs dfs -rm -skipTrash s3a://cnelson2-data/external/
+
+You must use skipTrash or else it will fail.
