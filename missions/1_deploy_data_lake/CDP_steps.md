@@ -1,8 +1,11 @@
+# Creating a CDP environment via the UI
+
+## Tagging
 Everything is tagged with 
 
-enddate   05312021
-owner  okta/cnelson2@cloudera.com
-project   basecamp/0422/2021
+* enddate   05312021
+* owner  okta/cnelson2@cloudera.com
+* project   basecamp/0422/2021
 
 ## Create 2 buckets in S3, use default permissions
 * `cnelson2-data`
@@ -38,6 +41,7 @@ choose correct region
 * pick your keypair
 * enter your dynamodb table name (it hasn't been created yet, but just use your username as the table name)
 
+### Logging
 * Logger instance profile is the log-role
 * s3 path is cnelson2-logs/log
 
