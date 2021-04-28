@@ -1,12 +1,5 @@
+
 drop table if exists detectors.astronomers;
-drop table if exists detectors.astronomers_new;
-drop table if exists detectors.galaxies;
-
-
-drop database detectors;
-
-
-drop table detectors.astronomers;
 CREATE EXTERNAL TABLE detectors.astronomers
 (  astrophysicist_id double,
   astrophysicist_name varchar,
@@ -19,7 +12,9 @@ CREATE EXTERNAL TABLE detectors.astronomers
 select count(*) from detectors.astronomers;
 
 
-create external table if not exists detectors.galaxies
+
+drop table if exists detectors.galaxies;
+create external table detectors.galaxies
 (  galaxy_id int,
   galaxy_name varchar,
   galaxy_type varchar,
@@ -35,6 +30,7 @@ location 's3a://cnelson2-data/external/galaxies';
 
 select count(*) from detectors.galaxies;
 
+drop table if exists detectors.sqoop_astrophysicists;
 create external table detectors.sqoop_astrophysicists (
   astrophysicist_id int,
   astrophysicist_name string,
@@ -45,6 +41,8 @@ stored as avro
 location 's3a://cnelson2-data/external/sqoop_astrophysicists';
 
 select count(*) from detectors.sqoop_astrophysicists;
+
+
 
 drop table if exists detectors.measurements;
 create external table detectors.measurements
@@ -64,6 +62,8 @@ location 's3a://cnelson2-data/external/measurements_small';
 
 select count(*) from detectors.measurements;
 
+
+
 drop table if exists detectors.galaxies;
 create external table detectors.galaxies (
   galaxy_id int,
@@ -81,6 +81,8 @@ location 's3a://cnelson2-data/external/galaxies'
 TBLPROPERTIES ('skip.header.line.count' = '1');
 
 select count(*) from detectors.galaxies;
+
+
 
 drop table if exists detectors.detectors;
 create external table detectors.detectors (
