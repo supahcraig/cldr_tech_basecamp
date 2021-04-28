@@ -3,9 +3,9 @@
 ## Tagging
 Everything is tagged with 
 
-* enddate   05312021
-* owner  okta/cnelson2@cloudera.com
-* project   basecamp/0422/2021
+* enddate:   05312021
+* owner:  okta/cnelson2@cloudera.com
+* project:   basecamp/0422/2021
 
 ## Create 2 buckets in S3, use default permissions
 * `cnelson2-data`
