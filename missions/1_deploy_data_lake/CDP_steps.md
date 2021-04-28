@@ -5,17 +5,17 @@ owner  okta/cnelson2@cloudera.com
 project   basecamp/0422/2021
 
 ## Create 2 buckets in S3, use default permissions
-`cnelson2-data`
-`cnelson2-logs`
+* `cnelson2-data`
+* `cnelson2-logs`
 
 ## References you'll use throughout the deployment
-${LOGS_BUCKET} : cnelson2-logs
-${LOGS_LOCATION_BASE} : cnelson2-logs/log
-${DATALAKE_BUCKET} : cnelson2-data
-${STORAGE_LOCATION_BASE} : cnelson2-data/gravity
-${DYNAMODB_TABLE_NAME} : cnelson2
-${AWS_ACCOUNT_ID} : the account id of your AWS account
-${IDBROKER_ROLE} : cnelson2-idbroker-role
+* ${LOGS_BUCKET} : cnelson2-logs
+* ${LOGS_LOCATION_BASE} : cnelson2-logs/log
+* ${DATALAKE_BUCKET} : cnelson2-data
+* ${STORAGE_LOCATION_BASE} : cnelson2-data/gravity
+* ${DYNAMODB_TABLE_NAME} : cnelson2
+* ${AWS_ACCOUNT_ID} : the account id of your AWS account
+* ${IDBROKER_ROLE} : cnelson2-idbroker-role
 
 ## NOTE:  
 The ranger audit role resource should not include the /ranger/audit portion of the path.  This is a mistake in the docs.
