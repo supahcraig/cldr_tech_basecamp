@@ -23,21 +23,23 @@ Should look like:
 `"Resource": "arn:aws:s3:::cnelson2-data/gravity/*"`
 
 
-Creating the environment
+# Creating the environment
 
-Assumer Instance Profile is the id-broker role
-Data access role is the datalake admin role
+* Assumer Instance Profile is the id-broker role
+* Data access role is the datalake admin role
 
+## NOTE:
 choose correct region
 
-create new network, use 10.10.0.0/16
-disable private subnets
-create new security groups, 0.0.0.0/0
-pick your keypair
-enter your dynamodb table name (it hasn't been created yet)
+### Networking
+* create new network, use `10.10.0.0/16`
+* disable private subnets
+* create new security groups, use `0.0.0.0/0`
+* pick your keypair
+* enter your dynamodb table name (it hasn't been created yet, but just use your username as the table name)
 
-Logger instance profile is the log-role
-s3 path is cnelson2-logs/log
+* Logger instance profile is the log-role
+* s3 path is cnelson2-logs/log
 
 ## How to create environment?
 ```
