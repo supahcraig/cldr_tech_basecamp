@@ -1,4 +1,4 @@
-# Test spark in zeppelin
+# Configure spark in zeppelin
 
 ## Update the livy config for whitelist in Cloudera Manager
 
