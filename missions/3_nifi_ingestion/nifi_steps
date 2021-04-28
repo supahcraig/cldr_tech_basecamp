@@ -1,5 +1,30 @@
 You'll need to stand up a data hub cluster with Nifi using Flow Management Light Duty.
-You'll also "need" another data hub to use hive or impala (I chose hive)
+
+This builds a nifi cluster:
+
+cdp datahub create-aws-cluster \
+--cluster-name cnelson2-nifi \
+--environment-name cnelson2 \
+--cluster-template-name "7.2.1 - Flow Management Light Duty with Apache NiFi, Apache NiFi Registry" \
+--instance-groups nodeCount=3,instanceGroupName=nifi,instanceGroupType=CORE,instanceType=m5.2xlarge,rootVolumeSize=150,attachedVolumeConfiguration=\[\{volumeSize=500,volumeCount=4,volumeType=standard\}\],recoveryMode=MANUAL nodeCount=1,instanceGroupName=gateway,instanceGroupType=GATEWAY,instanceType=m5.2xlarge,attachedVolumeConfiguration=\[\{volumeSize=100,volumeCount=1,volumeType=standard\}\],recoveryMode=MANUAL \
+--image id=2ad475f8-698c-490f-aa53-040117f1e98c,catalogName=cdp-default \
+--tags key=owner,value=okta/cnelson2@cloudera.com key=enddate,value=05312021 key=project,value=basecamp/04262021 
+
+
+
+You'll also "need" another data hub to use hive or impala (I chose impala) to create external tables to inspect the data in Hue
+
+Hue/Impala cluster:
+
+cdp datahub create-aws-cluster \
+--cluster-name cnelson2-impala \
+--environment-name cnelson2 \
+--cluster-template-name "7.2.1 - Data Mart: Apache Impala, Hue" \
+--instance-groups nodeCount=1,instanceGroupName=master,instanceGroupType=GATEWAY,instanceType=r5.4xlarge,attachedVolumeConfiguration=\[\{volumeSize=100,volumeCount=1,volumeType=standard\}\],recoveryMode=MANUAL,volumeEncryption=\{enableEncryption=false\} nodeCount=1,instanceGroupName=coordinator,instanceGroupType=CORE,instanceType=r5d.4xlarge,attachedVolumeConfiguration=\[\{volumeSize=300,volumeCount=2,volumeType=ephemeral\}\],recoveryMode=MANUAL,volumeEncryption=\{enableEncryption=false\} nodeCount=2,instanceGroupName=executor,instanceGroupType=CORE,instanceType=r5d.4xlarge,attachedVolumeConfiguration=\[\{volumeSize=300,volumeCount=2,volumeType=ephemeral\}\],recoveryMode=MANUAL,volumeEncryption=\{enableEncryption=false\} \
+--image id=2ad475f8-698c-490f-aa53-040117f1e98c,catalogName=cdp-default \
+--tags key=owenr,value=okta/cnelson2@cloudera.com key=project,value=basecamp/04262021 key=enddate,value=05312021 
+
+
 
 The instructions here are terrible, here are the corrections:
 
