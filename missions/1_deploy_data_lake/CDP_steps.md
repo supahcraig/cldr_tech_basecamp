@@ -4,11 +4,11 @@ enddate   05312021
 owner  okta/cnelson2@cloudera.com
 project   basecamp/0422/2021
 
-Create 2 buckets in S3:
-cnelson2-data
-cnelson2-logs
+## Create 2 buckets in S3, use default permissions
+`cnelson2-data`
+`cnelson2-logs`
 
-These are references you'll use later on
+## References you'll use throughout the deployment
 ${LOGS_BUCKET} : cnelson2-logs
 ${LOGS_LOCATION_BASE} : cnelson2-logs/log
 ${DATALAKE_BUCKET} : cnelson2-data
@@ -17,10 +17,11 @@ ${DYNAMODB_TABLE_NAME} : cnelson2
 ${AWS_ACCOUNT_ID} : the account id of your AWS account
 ${IDBROKER_ROLE} : cnelson2-idbroker-role
 
-NOTE:  
-the ranger audit role resource should not include the /ranger/audit portion of the path.  This is a mistake in the docs.
+## NOTE:  
+The ranger audit role resource should not include the /ranger/audit portion of the path.  This is a mistake in the docs.
 Should look like:
-"Resource": "arn:aws:s3:::cnelson2-data/gravity/*"
+`"Resource": "arn:aws:s3:::cnelson2-data/gravity/*"`
+
 
 Creating the environment
 
@@ -38,8 +39,9 @@ enter your dynamodb table name (it hasn't been created yet)
 Logger instance profile is the log-role
 s3 path is cnelson2-logs/log
 
-How to create environment?
- cdp environments create-aws-environment \
+## How to create environment?
+```
+cdp environments create-aws-environment \
 --environment-name cnelson2 \
 --credential-name cnelson2 \
 --region "us-east-2" \
@@ -51,17 +53,20 @@ How to create environment?
 --network-cidr 10.10.0.0/16 \
 --s3-guard-table-name cnelson2 \
 --free-ipa instanceCountByGroup=1 
+```
 
 
-How to create id broker mappings?
+## How to create id broker mappings?
+```
 cdp environments set-id-broker-mappings \
 --environment-name cnelson2 \
 --data-access-role arn:aws:iam::665634629064:role/cnelson2-datalake-admin-role \
 --set-empty-mappings 
+```
 
 
-
-How to create data lake?
+## How to create data lake?
+```
 cdp datalake create-aws-datalake \
 --datalake-name cnelson2 \
 --environment-name cnelson2 \
@@ -69,3 +74,4 @@ cdp datalake create-aws-datalake \
 --tags key=enddate,value=05312021 key=owner,value=okta/cnelson2@cloudera.com key=project,value=basecamp/04222021 \
 --scale LIGHT_DUTY \
 --runtime 7.2.1 
+```
