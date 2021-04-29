@@ -12,13 +12,13 @@ Everything is tagged with
 * `cnelson2-logs`
 
 ## References you'll use throughout the deployment
-* ${LOGS_BUCKET} : cnelson2-logs
-* ${LOGS_LOCATION_BASE} : cnelson2-logs/log
-* ${DATALAKE_BUCKET} : cnelson2-data
-* ${STORAGE_LOCATION_BASE} : cnelson2-data/gravity
-* ${DYNAMODB_TABLE_NAME} : cnelson2
-* ${AWS_ACCOUNT_ID} : the account id of your AWS account
-* ${IDBROKER_ROLE} : cnelson2-idbroker-role
+* ${LOGS_BUCKET} : `cnelson2-logs`
+* ${LOGS_LOCATION_BASE} : `cnelson2-logs/log`
+* ${DATALAKE_BUCKET} : `cnelson2-data`
+* ${STORAGE_LOCATION_BASE} : `cnelson2-data/gravity`
+* ${DYNAMODB_TABLE_NAME} : `cnelson2
+* ${AWS_ACCOUNT_ID} : `the account id of *YOUR* AWS account`
+* ${IDBROKER_ROLE} : `cnelson2-idbroker-role`
 
 ## Create the IAM Roles & Policies
 
