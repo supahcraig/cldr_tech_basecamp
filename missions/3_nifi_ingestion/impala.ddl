@@ -89,8 +89,8 @@ create external table detectors.detectors (
   detector_id string,
   detector_name varchar,
   country varchar,
-  latitude double,
-  longitude double
+  latitude string,
+  longitude string
 )
 row format delimited
 fields terminated by ','
