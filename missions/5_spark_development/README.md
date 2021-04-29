@@ -52,7 +52,6 @@ grep -B 1 -A 2 -n 'hive.metastore.uris' hive-site.xml
 Use that to update one more livy config:
 `livy.spark.datasource.hive.warehouse.metastoreUri  ==> thrift://cnelson2-datahub-master0.cnelson2.a465-9q4k.cloudera.site:9083`
 
-## Zeppelin/livy configuration for Hive
 
 ## Take the result and create an external table against that S3 result
 This requires one more livy config:
