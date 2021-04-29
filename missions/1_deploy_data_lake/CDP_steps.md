@@ -20,7 +20,9 @@ Everything is tagged with
 * ${AWS_ACCOUNT_ID} : the account id of your AWS account
 * ${IDBROKER_ROLE} : cnelson2-idbroker-role
 
-## NOTE:  
+## Create the IAM Roles & Policies
+
+### &#x1F534; NOTE:  
 The ranger audit role resource should not include the /ranger/audit portion of the path.  This is a mistake in the docs.
 Should look like:
 `"Resource": "arn:aws:s3:::cnelson2-data/gravity/*"`
