@@ -11,9 +11,9 @@ https://docs.cloudera.com/data-engineering/cloud/manage-clusters/topics/cde-crea
 ### Create/run a job
 https://docs.cloudera.com/data-engineering/cloud/manage-jobs/topics/cde-create-job.html
 
-upload your python script from Mission 4.
+Upload your python script from Mission 4....sort of.  My script used some hive pieces to create an external table.  I removed those pieces since my Datahub cluster had been spun down, and thus had no hiveserver to run those pieces against.
+
 
 Run the job.
-
 
 I did not need to supply any additional configurations, jars, or anything other than my python script.
