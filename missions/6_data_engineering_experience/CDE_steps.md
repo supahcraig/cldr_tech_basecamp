@@ -12,3 +12,8 @@ https://docs.cloudera.com/data-engineering/cloud/manage-clusters/topics/cde-crea
 https://docs.cloudera.com/data-engineering/cloud/manage-jobs/topics/cde-create-job.html
 
 upload your python script from Mission 4.
+
+Run the job.
+
+
+I did not need to supply any additional configurations, jars, or anything other than my python script.
