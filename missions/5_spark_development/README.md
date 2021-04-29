@@ -1,5 +1,9 @@
 # Configure spark in zeppelin
 
+This link was supplied by the basecamp documentation, but these instructions are from prior work done in making Zeppelin talk to hive.
+https://community.cloudera.com/t5/Community-Articles/Integrating-Apache-Hive-with-Apache-Spark-Hive-Warehouse/ta-p/249035
+
+
 ## Update the livy config for whitelist in Cloudera Manager
 
 `Livy --> configuration --> livy-conf/livy.conf`
@@ -47,3 +51,20 @@ grep -B 1 -A 2 -n 'hive.metastore.uris' hive-site.xml
 ```
 Use that to update one more livy config:
 `livy.spark.datasource.hive.warehouse.metastoreUri  ==> thrift://cnelson2-datahub-master0.cnelson2.a465-9q4k.cloudera.site:9083`
+
+## Zeppelin/livy configuration for Hive
+
+## Take the result and create an external table against that S3 result
+This requires one more livy config:
+### Find the pyspark hwc zip:
+```
+find / -name *pyspark_hwc* 2>/dev/null
+```
+Copy that to `/tmp/zeppelin` 
+```
+cd /tmp/zeppelin
+chmod 777 *pyspark_hwc*.zip
+```
+
+Now add another entry to the interpreter config:
+`livy.spark.submit.pyFiles  ==>  file:///tmp/zeppelin/pyspark_hwc-1.0.0.7.2.1.4-4.zip` where the zip file is the file you just found
