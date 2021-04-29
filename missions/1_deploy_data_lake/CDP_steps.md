@@ -27,6 +27,8 @@ The ranger audit role resource should not include the /ranger/audit portion of t
 Should look like:
 `"Resource": "arn:aws:s3:::cnelson2-data/gravity/*"`
 
+The policy documents in this repository are correct for all the exercises (at least up through the first Spark exercise).  If you have trouble, check your policies against the json documents here.
+
 
 # Creating the environment
 
