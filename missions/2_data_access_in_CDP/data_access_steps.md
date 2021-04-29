@@ -8,10 +8,11 @@ You may need to sudo to your EC2 instance, note that steps 1-3 may not be necess
 2.  copy pem file to box, chmod 400
 3.  exit
 4.  ssh into the box using cloudbreak user and your pem file
-5.  sudo -i
+  * `ssh -i <your pem file> cloudbreak@<your host>`
+5.  `sudo -i`
 6.  use workload password (if necessary)
 
-
+## Test Cloudera Manager UI
 If CM doesn't come up, you'll need to sudo & look at logs and/or restart the CM service:
 
 ```
