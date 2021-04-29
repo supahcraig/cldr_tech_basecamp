@@ -43,11 +43,11 @@ choose correct region
 * disable private subnets
 * create new security groups, use `0.0.0.0/0`
 * pick your keypair
-* enter your dynamodb table name (it hasn't been created yet, but just use your username as the table name)
+* enter your dynamodb table name (see above):  `cnelson2` _(it hasn't been created yet, but just use your username as the table name)_
 
 ### Logging
 * Logger instance profile is the log-role
-* s3 path is cnelson2-logs/log
+* s3 path is the logs location base (see above): `cnelson2-logs/log`
 
 ## How to create environment?
 ```
