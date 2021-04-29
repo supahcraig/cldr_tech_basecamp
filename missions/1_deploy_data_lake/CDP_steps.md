@@ -1,5 +1,9 @@
 # Creating a CDP environment via the UI
 
+Cheat Sheet:
+https://docs.google.com/document/d/1BTTrZ7NijD-xCrlg1YYfHBDjN3KYLEKku3b3sOZ5En4/edit#
+
+
 ## Tagging
 Everything is tagged with 
 
