@@ -1,8 +1,11 @@
 # Operational Database
 
+You'll also need that Nifi cluster still running, refer to Nifi missions for that setup.
+
+
 ## Spin up Operational Database Datahub Cluster
 
-
+Use the Operational Database with SQL for AWS
 ```
 cdp datahub create-aws-cluster \
 --cluster-name cnelson2-od \
@@ -31,5 +34,30 @@ scp -i ../cnelson2-basecamp-keypair.pem core-site.xml cnelson2@cnelson2-nifi-nif
 scp -i ../cnelson2-basecamp-keypair.pem core-site.xml cnelson2@cnelson2-nifi-nifi2.cnelson2.a465-9q4k.cloudera.site:/tmp/core-site.xml
 ```
 
-permissions will probably be a thing.
+
+
+## Deal with Kerberos
+
+1.  From CDP Console --> User Management, find your user
+2.  Actions --> Get Keytab for your environment, and download
+3.  scp that to each nifi node:
+  * `scp -i cnelson2-basecamp-keypair.pem cnelson2-cnelson2.keytab cnelson2@cnelson2-nifi-nifi0.cnelson2.a465-9q4k.cloudera.site:/tmp/cnelson2.keytab`
+  * `scp -i cnelson2-basecamp-keypair.pem cnelson2-cnelson2.keytab cnelson2@cnelson2-nifi-nifi1.cnelson2.a465-9q4k.cloudera.site:/tmp/cnelson2.keytab`
+  * `scp -i cnelson2-basecamp-keypair.pem cnelson2-cnelson2.keytab cnelson2@cnelson2-nifi-nifi2.cnelson2.a465-9q4k.cloudera.site:/tmp/cnelson2.keytab`
+4.  ssh to one of your nifi nodes
+5.  cd to the directory where you put your keytab
+6.  `klist -kt <your keytab>`
+7.  Copy the principal out of that output
+8.  Set up Hbase Client Service in nifi (you'll create the service inside the PutHbaseCell nifi processor)
+  * Keytab is `<path to your keytab>/your.keytab`
+  * Principal is what you copied from step 7
+  * _(( things still won't work yet ))_
+
+## Fix permissions
+ssh into each nifi node and chmod 644 your hbase-site.xml, core-site.xml, and your keytab file
+
+Protip:  do this with 3 tabs in iTerm2.
+
+
+## Create the Hbase table in Hue
 
