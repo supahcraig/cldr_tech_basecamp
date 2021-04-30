@@ -23,8 +23,8 @@ select
   end as gravitational_wave_flag,
   replace(d.detector_name, "'", "") as detector_name,
   replace(d.country, "'", "") as country,
-  d.latitude ,
-  d.longitude
+  cast(replace(d.latitude, "'", "") as double) as latitude,
+  cast(replace(d.longitude, "'", "") as double) as longitude
 from detectors.measurements m
    , detectors.galaxies g
    , detectors.detectors d
