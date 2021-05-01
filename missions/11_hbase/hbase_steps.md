@@ -94,6 +94,7 @@ Just like the kafka exercise you'll need a listen TCP processor and to kick off 
 
 ```
 wget https://gravity-data.s3.ca-central-1.amazonaws.com/basecamp_references/dev-basecamp/05-Fast_Data_Storage/bootcamp-0.1.0.jar
+
 java -cp bootcamp-0.1.0.jar com.cloudera.fce.bootcamp.MeasurementGenerator <any nifi node hostname> <any available port>
 ```
 
