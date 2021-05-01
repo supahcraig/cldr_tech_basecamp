@@ -1,4 +1,6 @@
-# Configure spark in zeppelin
+# Configure the Hive Warehouse Connector
+
+This is how you get spark in zeppelin to talk to the hive warehouse, maybe other things as well?
 
 This link was supplied by the basecamp documentation, but these instructions are from prior work done in making Zeppelin talk to hive.  This link was, however, vital in getting the spark-submit parameters correct for execution outside of Zeppelin.
 https://community.cloudera.com/t5/Community-Articles/Integrating-Apache-Hive-with-Apache-Spark-Hive-Warehouse/ta-p/249035
