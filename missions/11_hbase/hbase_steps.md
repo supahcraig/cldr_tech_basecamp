@@ -48,14 +48,17 @@ scp -i ../cnelson2-basecamp-keypair.pem core-site.xml cnelson2@cnelson2-nifi-nif
 
 1.  From CDP Console --> User Management, find your user
 2.  Actions --> Get Keytab for your environment, and download
-3.  scp that to each nifi node:
-  * `scp -i cnelson2-basecamp-keypair.pem cnelson2-cnelson2.keytab cnelson2@cnelson2-nifi-nifi0.cnelson2.a465-9q4k.cloudera.site:/tmp/cnelson2-cnelson2.keytab`
-  * `scp -i cnelson2-basecamp-keypair.pem cnelson2-cnelson2.keytab cnelson2@cnelson2-nifi-nifi1.cnelson2.a465-9q4k.cloudera.site:/tmp/cnelson2-cnelson2.keytab`
-  * `scp -i cnelson2-basecamp-keypair.pem cnelson2-cnelson2.keytab cnelson2@cnelson2-nifi-nifi2.cnelson2.a465-9q4k.cloudera.site:/tmp/cnelson2-cnelson2.keytab`
+3.  scp that to each nifi node
+```
+scp -i cnelson2-basecamp-keypair.pem cnelson2-cnelson2.keytab cnelson2@cnelson2-nifi-nifi0.cnelson2.a465-9q4k.cloudera.site:/tmp/cnelson2-cnelson2.keytab`
+scp -i cnelson2-basecamp-keypair.pem cnelson2-cnelson2.keytab cnelson2@cnelson2-nifi-nifi1.cnelson2.a465-9q4k.cloudera.site:/tmp/cnelson2-cnelson2.keytab`
+scp -i cnelson2-basecamp-keypair.pem cnelson2-cnelson2.keytab cnelson2@cnelson2-nifi-nifi2.cnelson2.a465-9q4k.cloudera.site:/tmp/cnelson2-cnelson2.keytab`
+```
 4.  ssh to one of your nifi nodes
 5.  cd to the directory where you put your keytab
 6.  `klist -kt <your keytab>`
 7.  Copy the principal from that output
+ * should look like `cnelson2@CNELSON2.A465-9Q4K.CLOUDERA.SITE`
 
 Finish setting up the HBase Client Service
 
@@ -66,11 +69,31 @@ _(( things still won't work yet ))_
 
 
 ## Fix permissions
-ssh into each nifi node and chmod 644 your hbase-site.xml, core-site.xml, and your keytab file
+ssh into each nifi node and chmod 777 your hbase-site.xml, core-site.xml, and your keytab file
 
 Protip:  do this with 3 tabs in iTerm2.
 
 
 ## Create the Hbase table in Hue
 
+Go to your ODB data hub cluster, and open up the Hue UI to create a new table.
 
+
+## PutHbaseCell nifi processor
+
+* Use your Hbase Client service
+* Table name you just created in Hue
+* Row identifier... appears to be anything you want
+* Column family you used when you created your table
+* Column qualifier... appears to be anything you want
+* 
+
+## ListenTCP nifi processor
+Just like the kafka exercise you'll need a listen TCP processor and to kick off the data generator jar on one of the nifi nodes:
+
+```
+wget https://gravity-data.s3.ca-central-1.amazonaws.com/basecamp_references/dev-basecamp/05-Fast_Data_Storage/bootcamp-0.1.0.jar
+java -cp bootcamp-0.1.0.jar com.cloudera.fce.bootcamp.MeasurementGenerator <any nifi node hostname> <any available port>
+```
+
+## See results in Hue
