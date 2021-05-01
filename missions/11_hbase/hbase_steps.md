@@ -21,7 +21,7 @@ cdp datahub create-aws-cluster \
 ## Download hbase conf
 From Operational DB's Cloudera mnager, go Clusters --> HBase --> Actions --> Download Client Configuration
 
-I think you can just unzip that locally and copy the hbase-site.xml & core-site.xml to the nifi nodes, but it _might_ require all those files.
+You can just unzip that locally and copy the hbase-site.xml & core-site.xml to the nifi nodes.
 
 Download hbase-site.xml & core-site.xml & upload to nifi cluster
 
@@ -64,14 +64,15 @@ Finish setting up the HBase Client Service
 
 * Keytab is `<path to your keytab>/your.keytab`
 * Principal is what you copied from step 7
+
 _(( things still won't work yet ))_
 
 
 
 ## Fix permissions
-ssh into each nifi node and chmod 777 your hbase-site.xml, core-site.xml, and your keytab file
+ssh into each nifi node and `chmod 777` your `hbase-site.xml`, `core-site.xml`, and your keytab file
 
-Protip:  do this with 3 tabs in iTerm2.
+*Protip:  do this with 3 tabs in iTerm2.*
 
 
 ## Create the Hbase table in Hue
