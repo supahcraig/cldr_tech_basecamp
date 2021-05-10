@@ -1,5 +1,8 @@
 # Ingesting data with sqoop
 
+## Create a Data Engineering environment
+I did it with an experience, but a data hub cluster would also work.  There is no "show CLI" feature for Data Engineering experience.
+
 
 ## Create the destination table in Hive
 
