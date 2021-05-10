@@ -68,6 +68,7 @@ cdp environments create-aws-environment \
 --s3-guard-table-name cnelson2 \
 --free-ipa instanceCountByGroup=1 
 ```
+This can take 15+ minutes.
 
 
 ## How to create id broker mappings?
@@ -78,6 +79,7 @@ cdp environments set-id-broker-mappings \
 --ranger-audit-role arn:aws:iam::665634629064:role/cnelson2-ranger-audit-role \
 --set-empty-mappings 
 ```
+This is more or less instantaneous.
 
 
 ## How to create data lake?
@@ -90,3 +92,4 @@ cdp datalake create-aws-datalake \
 --scale LIGHT_DUTY \
 --runtime 7.2.1 
 ```
+This can take a long time.....
