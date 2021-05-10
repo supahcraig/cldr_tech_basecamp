@@ -1,3 +1,16 @@
+# Create a Data Engineering Data Hub Cluster
+You can use the same one you created in the sqoop mission or build a new one.
+
+cdp datahub create-aws-cluster \
+--cluster-name cnelson-de-datahub \
+--environment-name cnelson2 \
+--cluster-template-name "7.2.1 - Data Engineering: Apache Spark, Apache Hive, Apache Oozie" \
+--instance-groups nodeCount=3,instanceGroupName=worker,instanceGroupType=CORE,instanceType=m5.2xlarge,attachedVolumeConfiguration=\[\{volumeSize=100,volumeCount=1,volumeType=standard\}\],recoveryMode=MANUAL,volumeEncryption=\{enableEncryption=false\} nodeCount=1,instanceGroupName=master,instanceGroupType=GATEWAY,instanceType=m5.2xlarge,attachedVolumeConfiguration=\[\{volumeSize=100,volumeCount=1,volumeType=standard\}\],recoveryMode=MANUAL,volumeEncryption=\{enableEncryption=false\} nodeCount=1,instanceGroupName=compute,instanceGroupType=CORE,instanceType=m5.2xlarge,attachedVolumeConfiguration=\[\{volumeSize=100,volumeCount=1,volumeType=standard\}\],recoveryMode=MANUAL,volumeEncryption=\{enableEncryption=false\} nodeCount=0,instanceGroupName=gateway,instanceGroupType=CORE,instanceType=m5.2xlarge,attachedVolumeConfiguration=\[\{volumeSize=100,volumeCount=1,volumeType=standard\}\],recoveryMode=MANUAL,volumeEncryption=\{enableEncryption=false\} \
+--image id=2ad475f8-698c-490f-aa53-040117f1e98c,catalogName=cdp-default \
+--tags key="owner",value="okta/cnelson2@cloudera.com" 
+...although this CLI command is slightly wrong, "rootVolumeSize" is required, working with the CLI team to figure out what the command needs to look like.
+
+
 # Configure the Hive Warehouse Connector
 
 This is how you get spark in zeppelin to talk to the hive warehouse, maybe other things as well?
