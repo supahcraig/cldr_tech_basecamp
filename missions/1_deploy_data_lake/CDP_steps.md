@@ -75,6 +75,7 @@ cdp environments create-aws-environment \
 cdp environments set-id-broker-mappings \
 --environment-name cnelson2 \
 --data-access-role arn:aws:iam::665634629064:role/cnelson2-datalake-admin-role \
+--ranger-audit-role arn:aws:iam::665634629064:role/cnelson2-ranger-audit-role \
 --set-empty-mappings 
 ```
 
