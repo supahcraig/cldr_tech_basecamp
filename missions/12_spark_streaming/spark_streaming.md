@@ -6,11 +6,18 @@ The instructions here are terrible because they rely on a prior exercise which d
 * push that result to kafka
 * use nifi to read from kafka and write to s3
 
+
 ## Resources Needed
 
 * Data hub cluster with nifi
-* Data Warehouse experience of DW data hub cluster
+* Data hub cluster with streaming 
+* Data Warehouse experience or DW data hub cluster
 
+## Configuring Nifi to read from Impala
+
+### ExecuteSQL processor
+Set up your database connection pool service (see below).
+You may need to use a SQL Pre-Query, we used `select timeofday()` but it may not have been necessary.
 
 ### DBConnectionPool service
 * get the Database Connection URL from the Virtual DW, click on the 3 dots and "Copy JDBC URL"
