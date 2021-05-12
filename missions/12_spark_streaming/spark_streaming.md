@@ -1,5 +1,11 @@
 # Spark Streaming
 
+The instructions here are terrible because they rely on a prior exercise which doesn't exist.   So I made up my own exercise to roughly accomplish the goal using the things they said to use:
+* pull data from hive/impala ==> kafka
+* spark streaming job to do some stuff 
+* push that result to kafka
+* use nifi to read from kafka and write to s3
+
 ## Resources Needed
 
 * Data hub cluster with nifi
