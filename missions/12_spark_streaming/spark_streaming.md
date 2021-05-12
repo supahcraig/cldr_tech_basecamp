@@ -50,6 +50,20 @@ This was hard to debug, we used this link for help with the JDBC URL
 https://community.cloudera.com/t5/Community-Articles/Virtual-Warehouse-Impala-CDP-Public-Cloud-AWS/ta-p/313884
 
 
+### PublishKafka_2_0 processor
+* Kafka brokers
+ * list all your kafka brokers using port 9093 for SSL
+ * `cnelson-kafka-broker1.cnelson2.a465-9q4k.cloudera.site:9093, cnelson-kafka-broker0.cnelson2.a465-9q4k.cloudera.site:9093, cnelson-kafka-broker2.cnelson2.a465-9q4k.cloudera.site:9093`
+ * Security Protocol = `SASL_SSL`
+ * SASL Mechanism = `PLAIN`
+ * don't touch kerberos
+ * Username = <your CDP username>
+ * Password = <your workload password>
+ * SSL Context Service = `Default Nifi SSL Context Service`
+   * no additional configuration required for the SSL context service
+ * Set your topic name
+ * Delivery Guarantee = `Best Effort`
+ * Use Transactions = `false` for best performance
 
 
 cdp datahub create-aws-cluster \
