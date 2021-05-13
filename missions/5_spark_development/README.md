@@ -59,12 +59,12 @@ The hive2 jdbc URL is found in the Datahub console under Endpoints
 `livy.spark.sql.hive.hiveserver2.jdbc.url ==> jdbc:hive2://cnelson2-datahub-master0.cnelson2.a465-9q4k.cloudera.site/;ssl=true;transportMode=http;httpPath=cnelson2-datahub/cdp-proxy-api/hive;user=<cdp username>;password=<workload password>`
 
 #### Find the Hive Metastore URI
-From Cloudera Manager, go to `Hive --> Actions --> Download client config`
-Unzip the zip file and grep for the metastore URI:
+* From Cloudera Manager, go to `Hive --> Actions --> Download client config`
+* Unzip the zip file and grep for the metastore URI:
 ```
 grep -B 1 -A 2 -n 'hive.metastore.uris' hive-site.xml
 ```
-Use that to update one more livy config:
+* Use that to update one more livy config:
 `livy.spark.datasource.hive.warehouse.metastoreUri  ==> thrift://cnelson2-datahub-master0.cnelson2.a465-9q4k.cloudera.site:9083`
 
 
