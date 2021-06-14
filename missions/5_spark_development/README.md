@@ -1,6 +1,9 @@
 # Create a Data Engineering Data Hub Cluster
 You can use the same one you created in the sqoop mission or build a new one.
 
+The `all_everything.json` is a Zeppelin notebook which includes markdown of how to configure the livy interpreter to use the hive warehouse connector.
+
+
 cdp datahub create-aws-cluster \
 --cluster-name cnelson-de-datahub \
 --environment-name cnelson2 \
