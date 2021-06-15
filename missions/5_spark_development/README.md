@@ -86,3 +86,9 @@ chmod 777 *pyspark_hwc*.zip
 
 Now add another entry to the interpreter config:
 `livy.spark.submit.pyFiles  ==>  file:///tmp/zeppelin/pyspark_hwc-1.0.0.7.2.1.4-4.zip` where the zip file is the file you just found
+
+
+
+This blog post seems to have a ton of relevant info:
+https://blog.yannickjaquier.com/hadoop/hive-warehouse-connector-integration-in-zeppelin-notebook.html
+
