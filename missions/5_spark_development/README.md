@@ -53,7 +53,7 @@ cd /tmp/zeppelin
 chmod 777 *.jar
 ```
 ## Configure the Zeppelin interpreter
-* `livy.spark.datasource.hive.warehouse.load.staging.dir`  ==> `/tmp`
+* ```livy.spark.datasource.hive.warehouse.load.staging.dir```  ==> `/tmp`
 * `livy.spark.datasource.hive.warehouse.read.jdbc.mode` ==> `client`
 * `livy.spark.datasource.hive.warehouse.read.via.llap` ==> `false`
 * `livy.spark.jars` ==> `file:///tmp/zeppelin/hive-warehouse-connector-assembly-1.0.0.7.2.8.0-228.jar`  (this is the path to the HWC jar you copied earlier)
