@@ -28,6 +28,7 @@ https://community.cloudera.com/t5/Community-Articles/Integrating-Apache-Hive-wit
 ```
 livy.file.local-dir-whitelist=/tmp/zeppelin
 ```
+Then restart Livy services from Cloudera Manager.
 
 ## Copy the Hive Warehouse Connector to the Whitelist Directory
 Find the hostname where livy is installed `Cloudera Manager --> Livy --> Instances`
